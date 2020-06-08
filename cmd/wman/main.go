@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"os"
 
 	//	"github.com/twcrone/wman/pkg/string"
@@ -26,9 +25,4 @@ func main() {
 	////var name = args[1]
 	//fmt.Println(name, *greeting, a, b, c)
 	//fmt.Printf("hello %s, your name backward is %q", name, string.Reverse(name))
-}
-
-func foo(count *int) {
-	fmt.Println("count: ", *count)
-	*count++
 }

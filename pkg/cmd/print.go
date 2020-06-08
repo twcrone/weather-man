@@ -34,11 +34,10 @@ func newPrintCmd() *cobra.Command {
 
 // PrintCmd performs the print sub command
 func PrintCmd(options *printOptions, args []string) error {
+	name := wstring.Reversible(args[0])
 	if options.Reverse {
-		fmt.Printf("Hello %q\n", wstring.Reverse(args[0]))
-
-	} else {
-		fmt.Printf("Hello %q\n", args[0])
+		name = name.Reverse()
 	}
+	fmt.Printf("Hello %q\n", name)
 	return nil
 }

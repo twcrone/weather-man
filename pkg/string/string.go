@@ -1,6 +1,12 @@
 package string
 
-func Reverse(s string) string {
+type Reversible string
+
+func (s Reversible) Reverse() Reversible {
+	return Reversible(reverse(string(s)))
+}
+
+func reverse(s string) string {
 	b := []rune(s)
 	for i := 0; i < len(b)/2; i++ {
 		j := len(b) - i - 1

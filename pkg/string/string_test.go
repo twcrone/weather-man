@@ -14,8 +14,9 @@ func TestReverse(t *testing.T) {
 	}
 
 	for _, c := range tests {
-		got := Reverse(c.s)
-		if got != c.want {
+		s := Reversible(c.s)
+		got := s.Reverse()
+		if string(got) != c.want {
 			t.Errorf("Reverse(%q) == %q, want %q", c.s, got, c.want)
 		}
 	}

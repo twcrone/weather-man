@@ -36,11 +36,16 @@ func (t T) String() string {
 	return fmt.Sprintf("%s.%s", t.Field1, t.Field2)
 }
 
+func check(str string) bool {
+	return str == ""
+}
+
 func lintTest(cmd *cobra.Command, args []string) error {
 	var x T
 	y := T2(x)
 
 	fmt.Println(y)
+	fmt.Printf("value of check: %v", check(""))
 
 	strs := []string{"kind: Namespace", "kind:Namespace", "kind: Foo", "kind", "kind:  Namespace", "kind: Namespace"}
 	newStrs := []string{}
@@ -56,6 +61,7 @@ func lintTest(cmd *cobra.Command, args []string) error {
 
 	for _, str := range newStrs {
 		if nsRegex.MatchString(str) {
+			set[str] = true
 			fmt.Println(str)
 		}
 	}
